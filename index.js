@@ -11,7 +11,7 @@ async function startBot() {
     
     sock.ev.on('connection.update', (update) => {
         if (update.qr) {
-            console.log('🔴 SCANNEZ CE QR CODE :');
+            console.log(' SCANNEZ CE QR CODE :');
             qrcode.generate(update.qr, { small: true });
         }
         if (update.connection === 'open') {
