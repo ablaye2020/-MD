@@ -36,15 +36,15 @@ export const THEMES = {
 export const groupThemes = new Map();
 
 export function getThemePhoto(groupJid) {
-  const themeName = groupThemes.get(groupJid) || "yuta";
+  const themeName = groupThemes.get(groupJid) || "luffy";  // ← Changé ici : yuta → luffy
   const theme = THEMES[themeName];
-  return theme?.photo || THEMES.yuta.photo;
+  return theme?.photo || THEMES.luffy.photo;  // ← Changé ici aussi
 }
 
 export function getThemeEmoji(groupJid) {
-  const themeName = groupThemes.get(groupJid) || "yuta";
+  const themeName = groupThemes.get(groupJid) || "luffy";  // ← Changé ici : yuta → luffy
   const theme = THEMES[themeName];
-  return theme?.emoji || "⚡";
+  return theme?.emoji || "🏴‍☠️";
 }
 
 export default async function themeCommand(message, client, { args } = {}) {
@@ -72,7 +72,7 @@ export default async function themeCommand(message, client, { args } = {}) {
   const themesList = Object.keys(THEMES).join(", ");
 
   if (!themeName || !THEMES[themeName]) {
-    const currentTheme = groupThemes.get(remoteJid) || "yuta";
+    const currentTheme = groupThemes.get(remoteJid) || "luffy";  // ← Changé ici
     return await client.sendMessage(remoteJid, {
       text: `╭━〔 🎨 𝐓𝐇𝐄𝐌𝐄 〕━⬣
 ┃ 📊 Thème actuel : *${THEMES[currentTheme].nom}*
@@ -80,7 +80,7 @@ export default async function themeCommand(message, client, { args } = {}) {
 ┃ 📌 Thèmes disponibles :
 ┃ ${themesList}
 ┃ 
-┃ 📌 *.theme yuta* pour changer
+┃ 📌 *.theme luffy* pour changer
 ╰━━〔 ⚡ ${config.BotName} 〕━⬣
 > le respect ne se demande pas`
     });
